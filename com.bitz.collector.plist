@@ -1,0 +1,47 @@
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.bitz.collector</string> <!-- 服务的唯一标识符 -->
+
+        <key>ProgramArguments</key>
+        <array>
+            <!-- 可执行文件路径占位符 -->
+            <string>__PROJECT_PATH__/target/release/bitz</string>
+            <string>collect</string>
+            <string>-m</string>
+            <string>19</string>
+            <!-- 在这里可以添加其他需要的参数，每个参数是独立的 string -->
+            <!-- 例如: <string>--keypair</string> <string>/path/to/your/key.txt</string> -->
+        </array>
+
+        <key>WorkingDirectory</key>
+        <!-- 工作目录占位符 -->
+        <string>__PROJECT_PATH__</string>
+
+        <key>KeepAlive</key>
+        <true/> <!-- 这是关键！表示进程退出后总是重启 -->
+
+        <key>StandardOutPath</key>
+        <!-- 标准输出日志文件路径占位符 -->
+        <string>__PROJECT_PATH__/bitz_collector_out.log</string>
+
+        <key>StandardErrorPath</key>
+        <!-- 标准错误日志文件路径占位符 -->
+        <string>__PROJECT_PATH__/bitz_collector_err.log</string>
+
+        <key>RunAtLoad</key>
+        <true/> <!-- 加载配置后立即启动 -->
+
+        <!-- 可以添加环境变量 (可选) -->
+        <!--
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>RUST_LOG</key>
+            <string>info</string>
+        </dict>
+        -->
+
+    </dict>
+    </plist>
