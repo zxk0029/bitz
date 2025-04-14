@@ -6,7 +6,11 @@ INTERVAL=1 # seconds
 
 echo "Monitoring CPU usage for process '$PROCESS_NAME' every $INTERVAL second(s)..."
 echo "Logging to $LOG_FILE"
-echo "Timestamp, CPU%" > "$LOG_FILE"
+
+# Write header only if file doesn't exist or is empty
+if [ ! -f "$LOG_FILE" ] || [ ! -s "$LOG_FILE" ]; then
+    echo "Timestamp, CPU%" > "$LOG_FILE"
+fi
 
 # Find the PID - handle multiple processes if necessary, here we take the first one
 PID=$(pgrep -f "$PROCESS_NAME" | head -n 1)
