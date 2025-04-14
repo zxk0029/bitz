@@ -23,13 +23,17 @@
         <key>KeepAlive</key>
         <true/> <!-- 这是关键！表示进程退出后总是重启 -->
 
+        <!-- Commenting out StandardOutPath -->
+        <!--
         <key>StandardOutPath</key>
-        <!-- 标准输出日志文件路径占位符 -->
         <string>__PROJECT_PATH__/bitz_collector_out.log</string>
+        -->
 
+        <!-- Commenting out StandardErrorPath -->
+        <!--
         <key>StandardErrorPath</key>
-        <!-- 标准错误日志文件路径占位符 -->
         <string>__PROJECT_PATH__/bitz_collector_err.log</string>
+        -->
 
         <key>RunAtLoad</key>
         <true/> <!-- 加载配置后立即启动 -->
